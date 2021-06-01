@@ -5,11 +5,16 @@ import android.os.Bundle
 import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
+import android.widget.Button
+import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
+import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import br.com.santanderapp.R
 import br.com.santanderapp.data.Conta
+import com.google.android.material.card.MaterialCardView
 
 class MainActivity : AppCompatActivity() {
 
@@ -26,6 +31,24 @@ class MainActivity : AppCompatActivity() {
         mainViewModel = ViewModelProvider(this).get(MainViewModel::class.java)
         buscarContaCliente()
 
+        //Iniciar o Toast.
+        val toastPagar = findViewById<MaterialCardView>(R.id.mcv_pagar)
+
+        toastPagar.setOnClickListener {
+           Toast.makeText(this, "Pagar", Toast.LENGTH_SHORT).show()
+        }
+
+        val toastTransferir = findViewById<MaterialCardView>(R.id.mcv_transferir)
+
+        toastTransferir.setOnClickListener {
+           Toast.makeText(this, "Transferir", Toast.LENGTH_SHORT).show()
+        }
+
+        val toastRecarregar = findViewById<MaterialCardView>(R.id.mcv_recarregar)
+
+        toastRecarregar.setOnClickListener {
+           Toast.makeText(this, "Recarregar", Toast.LENGTH_SHORT).show()
+        }
     }
 
     private fun buscarContaCliente() {
